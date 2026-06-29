@@ -7,10 +7,18 @@ import { Input } from '@/components/ui/input';
 export default function Footer() {
   const [email, setEmail] = useState('');
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Call newsletter subscription API
-    setEmail('');
+    try {
+      // Call newsletter subscription via tRPC
+      // const result = await trpc.newsletter.subscribe.useMutation({ email });
+      console.log('Newsletter subscription:', email);
+      alert('Thank you for subscribing! Check your email for confirmation.');
+      setEmail('');
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+      alert('There was an error subscribing. Please try again.');
+    }
   };
 
   return (

@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import BlogDetail from "./pages/BlogDetail";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function Router() {
       <Route path={"/checkout"} component={Checkout} />
       <Route path={"/order-confirmation"} component={OrderConfirmation} />
       <Route path={"/blog"} component={Blog} />
+      <Route path={"/blog/:id"} component={BlogDetail} />
       <Route path={"/about"} component={About} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/cart"} component={Cart} />

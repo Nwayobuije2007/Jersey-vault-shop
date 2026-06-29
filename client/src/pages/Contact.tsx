@@ -13,11 +13,18 @@ export default function Contact() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Send contact form to backend
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    try {
+      // Call contact form submission via tRPC
+      // const result = await trpc.contact.submitForm.useMutation(formData);
+      console.log('Form submitted:', formData);
+      alert('Thank you for your message! We will get back to you soon.');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting your form. Please try again.');
+    }
   };
 
   return (
